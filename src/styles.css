@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.table {
+  width: 100%;
+}
+
+.table td {
+  align-items: center;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  max-width: 800px !important;
+  width: 100%;
+  max-height: 550px;
+  height: 100%;
+}
