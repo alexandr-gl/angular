@@ -1,11 +1,6 @@
 // import {DataService} from './request.service';
 import {Request} from './request';
-import {Component, OnInit, ViewChild, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef, MatTableDataSource} from '@angular/material';
-import {ModalService} from './modal/modal.service';
-import {ModalComponent} from './modal/modal.component';
-import {DialogOverviewExampleDialog} from './modal/modal.component'
-import {MatDialog} from '@angular/material';
+import {Component, OnInit} from '@angular/core';
 
 /**
  * @title Table with filtering
@@ -13,19 +8,10 @@ import {MatDialog} from '@angular/material';
 @Component({
   selector: 'app-root',
   styleUrls: ['app.component.css'],
-  templateUrl: 'app.component.html',
+  templateUrl: 'app.component.html'
 })
 export class AppComponent implements OnInit {
-  constructor( public func: ModalComponent) {}
-  private bodyText: string;
-  displayedColumns = ['position', 'name', 'weight', 'symbol', 'visit_time1', 'visit_time2', 'menu'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-  showModal(id: number): void {
-    console.log('CHECK ID', id);
-    this.func.openDialog();
-  }
   ngOnInit() {
-    this.bodyText = 'This text can be updated in modal 1';
   }
 }
 

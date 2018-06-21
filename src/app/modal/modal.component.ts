@@ -25,6 +25,7 @@ export class ModalComponent implements OnInit {
     });
   }
   ngOnInit() {
+    console.log('WE ARE NOT HERE!!!');
   }
 }
 

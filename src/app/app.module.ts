@@ -46,16 +46,18 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DialogOverviewExampleDialog, ModalComponent} from './modal/modal.component';
 import {ModalService} from './modal/modal.service';
-import { ResultComponent } from './result/result.component';
 import {TextMaskModule} from 'angular2-text-mask';
-import { SendFormComponent } from './send-form/send-form.component';
+import {SendDialogComponent, SendFormComponent} from './send-form/send-form.component';
+import { MainTableComponent } from './main-table/main-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalComponent,
     DialogOverviewExampleDialog,
-    SendFormComponent
+    SendFormComponent,
+    SendDialogComponent,
+    MainTableComponent
   ],
   imports: [
     // NgForm,
@@ -99,10 +101,10 @@ import { SendFormComponent } from './send-form/send-form.component';
     MatTooltipModule,
     MatTreeModule,
     BrowserModule,
-    MatFormFieldModule
+    MatFormFieldModule,
   ],
-  entryComponents: [DialogOverviewExampleDialog],
-  providers: [ModalComponent],
+  entryComponents: [DialogOverviewExampleDialog, SendDialogComponent],
+  providers: [ModalComponent, SendFormComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
