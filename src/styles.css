@@ -20,6 +20,11 @@ ul {
   list-style-type: none;
 }
 
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
 .send-form__list {
   display: flex;
   flex-direction: row;
