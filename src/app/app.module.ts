@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule, NgForm, ControlContainer} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule, NgForm, ControlContainer, FormGroup} from '@angular/forms';
 import {CdkTableModule} from '@angular/cdk/table';
 // import {DialogOverviewExample, DialogOverviewExampleDialog} from './app/dialog-overview-example';
 import {

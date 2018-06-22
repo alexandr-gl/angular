@@ -1,53 +1,53 @@
 <div class="modal">
-  <div mat-dialog-content>
-    <form [formGroup]="editForm" (ngSubmit)="onFormSubmit(editForm.value, 1)" class="modal__form ng-pristine ng-untouched ng-valid" #myForm="ngForm" novalidate="">
+    <form [formGroup]="editForm" (ngSubmit)="onFormSubmit(editForm.value, 1)" class="modal__form ng-pristine ng-untouched ng-valid" novalidate="">
       <p>What's your favorite animal?</p>
-
-      <mat-form-field>
-        <input formControlName="Automobile" #auto matInput placeholder="Automobile" name="automobile" ngModel>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input formControlName="Service" #service matInput placeholder="Service" name="service" ngModel>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input formControlName="Mileage" #mileage matInput placeholder="Mileage" name="mileage" pattern="[0-9]{1,10}" ngModel>
-      </mat-form-field>
-
-      <div style="display: flex; flex-direction: row">
+      <fieldset formGroupName="autoData" class="modal__form">
         <mat-form-field>
-          <input formControlName="Visit_date1" (change)="checkDate(visit_date1.value, visit_time1.value, visit_date2.value, visit_time2.value)" #visit_date1 matInput placeholder="Visit date 1" [textMask]="maskDate" required name="visit_date1" ngModel>
+          <input formControlName="Automobile" matInput placeholder="Automobile" name="automobile" ngModel>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="Service" matInput placeholder="Service" name="service" ngModel>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="Mileage" matInput placeholder="Mileage" name="mileage" pattern="[0-9]{1,10}" ngModel>
+        </mat-form-field>
+
+      </fieldset>
+
+      <fieldset class="fieldset__date" formGroupName="firstDate" style="display: flex; flex-direction: row">
+        <mat-form-field>
+          <input formControlName="Visit_date1" matInput placeholder="Visit date 1" [textMask]="maskDate" required name="visit_date1" ngModel>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="Visit_time1" matInput placeholder="Visit time 1" [textMask]="maskTime" required name="visit_time1" ngModel>
+        </mat-form-field>
+      </fieldset>
+
+      <fieldset class="fieldset__date" formGroupName="secondDate" style="display: flex; flex-direction: row">
+
+        <mat-form-field>
+          <input formControlName="Visit_date2" matInput placeholder="Visit date 2" [textMask]="maskDate" required name="visit_date2" ngModel>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
-          <input formControlName="Visit_time1" (change)="checkDate(visit_date1.value, visit_time1.value, visit_date2.value, visit_time2.value)"  #visit_time1 matInput placeholder="Visit time 1" [textMask]="maskTime" required name="visit_time1" ngModel>
+          <input formControlName="Visit_time2" matInput placeholder="Visit time 2" [textMask]="maskTime" required name="visit_time2" ngModel>
         </mat-form-field>
-      </div>
-
-      <div style="display: flex; flex-direction: row">
-
-        <mat-form-field>
-          <input formControlName="Visit_date2" (change)="checkDate(visit_date1.value, visit_time1.value, visit_date2.value, visit_time2.value)" #visit_date2 matInput placeholder="Visit date 2" [textMask]="maskDate" required name="visit_date2" ngModel>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input formControlName="Visit_time2" (change)="checkDate(visit_date1.value, visit_time1.value, visit_date2.value, visit_time2.value)" #visit_time2 matInput placeholder="Visit time 2" [textMask]="maskTime" required name="visit_time2" ngModel>
-        </mat-form-field>
-      </div>
+      </fieldset>
 
       <div mat-dialog-actions>
         <!--<button mat-button (click)="onNoClick()">No Thanks</button>-->
-        <button [disabled]="!editForm.valid" type="submit" mat-button>
+        <button [disabled]="editForm.invalid" type="submit" mat-button>
           Submit
         </button>
       </div>
     </form>
-  </div>
 </div>
 
 <!--*ngIf="checkDateValue && !myForm.invalid"-->
