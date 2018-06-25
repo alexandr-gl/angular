@@ -48,7 +48,7 @@ import {DialogOverviewExampleDialog, ModalComponent} from './modal/modal.compone
 import {ModalService} from './modal/modal.service';
 import {TextMaskModule} from 'angular2-text-mask';
 import {SendDialogComponent, SendFormComponent} from './send-form/send-form.component';
-import { MainTableComponent } from './main-table/main-table.component';
+import {MainTableComponent} from './main-table/main-table.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,7 @@ import { MainTableComponent } from './main-table/main-table.component';
     DialogOverviewExampleDialog,
     SendFormComponent,
     SendDialogComponent,
-    MainTableComponent
+    MainTableComponent,
   ],
   imports: [
     // NgForm,
