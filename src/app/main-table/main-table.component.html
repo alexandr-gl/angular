@@ -1,25 +1,25 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
 
   <!-- Position Column -->
-  <ng-container matColumnDef="position">
+  <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> ID </th>
     <td #td mat-cell *matCellDef="let element">{{element.id}}</td>
   </ng-container>
 
   <!-- Name Column -->
-  <ng-container matColumnDef="name">
+  <ng-container matColumnDef="automobile">
     <th mat-header-cell *matHeaderCellDef> Automobile </th>
     <td mat-cell *matCellDef="let element"> {{element.automobile}} </td>
   </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
+  <ng-container matColumnDef="mileage">
     <th mat-header-cell *matHeaderCellDef> Mileage </th>
     <td mat-cell *matCellDef="let element"> {{element.mileage}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
+  <ng-container matColumnDef="service">
     <th mat-header-cell *matHeaderCellDef> Service </th>
     <td mat-cell *matCellDef="let element"> {{element.service}} </td>
   </ng-container>
@@ -40,13 +40,13 @@
       <button id="{{element.id}}" mat-button [matMenuTriggerFor]="menu" [matMenuTriggerData]="{id: element.id}">
         <p>I'm a menu button {{element.id}}</p>
       </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)='showModal(element)'>Edit</button>
+        <button mat-menu-item (click)='showSendForm(element.id)'>Send</button>
+      </mat-menu>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)='showModal($event)'>Edit</button>
-    <button mat-menu-item (click)='showSendForm()'>Send</button>
-  </mat-menu>
 </table>

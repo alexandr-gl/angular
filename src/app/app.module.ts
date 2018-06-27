@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule, NgForm, ControlContainer, FormGroup} from '@angular/forms';
 import {CdkTableModule} from '@angular/cdk/table';
-// import {DialogOverviewExample, DialogOverviewExampleDialog} from './app/dialog-overview-example';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -42,25 +41,28 @@ import {
   MatFormFieldModule
 } from '@angular/material';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component';SendFormComponent
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {DialogOverviewExampleDialog, ModalComponent} from './modal/modal.component';
-import {ModalService} from './modal/modal.service';
+import {DialogOverviewExampleDialog} from './edit-dialog/edit-dialog.component';
 import {TextMaskModule} from 'angular2-text-mask';
 import {SendDialogComponent, SendFormComponent} from './send-form/send-form.component';
 import {MainTableComponent} from './main-table/main-table.component';
+import {HttpService, RequestService} from './request.service';
+import { EditFormComponent } from './edit-form/edit-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModalComponent,
     DialogOverviewExampleDialog,
     SendFormComponent,
     SendDialogComponent,
     MainTableComponent,
+    EditFormComponent,
   ],
   imports: [
     // NgForm,
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     TextMaskModule,
@@ -105,7 +107,7 @@ import {MainTableComponent} from './main-table/main-table.component';
     MatFormFieldModule,
   ],
   entryComponents: [DialogOverviewExampleDialog, SendDialogComponent],
-  providers: [ModalComponent, SendFormComponent],
+  providers: [SendFormComponent, RequestService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

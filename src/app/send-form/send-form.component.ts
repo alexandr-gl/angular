@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material';
 import {NgForm} from '@angular/forms';
-import {ELEMENT_DATA} from '../app.component';
+import {RequestService} from '../request.service';
 
 @Component({
   selector: 'app-send-form',
@@ -9,18 +9,16 @@ import {ELEMENT_DATA} from '../app.component';
   styleUrls: ['./send-form.component.css']
 })
 export class SendFormComponent implements OnInit {
-  animal: string;
-  name: string;
 
   constructor(public dialog: MatDialog) {}
-  openDialog(): void {
-    let dialogRef = this.dialog.open(SendDialogComponent, {
+  openDialog(id: any): void {
+    const dialogRef = this.dialog.open(SendDialogComponent, {
       panelClass: 'custom-dialog-container',
-      data: { name: this.name, animal: this.animal },
+      data: { id },
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.animal = result;
+      console.log('Dialog was closed');
     });
   }
   ngOnInit() {
@@ -33,9 +31,9 @@ export class SendFormComponent implements OnInit {
   templateUrl: 'send-form.component.html',
 })
 export class SendDialogComponent {
-  public element_data = ELEMENT_DATA;
   public active = false;
   constructor(
+    public element_data: RequestService,
     public dialogRef: MatDialogRef<SendDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 

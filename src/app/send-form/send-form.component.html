@@ -2,17 +2,17 @@
   <h4> Ознакомьтесь с итогом и отправьте его в течении 15 минут. </h4>
   <ul class="send-form__list">
     <li>Автомобиль:</li>
-    <li class="send-form__list_li">{{element_data[0].automobile}}</li>
-    <li>{{element_data[0].mileage}}</li>
+    <li class="send-form__list_li">{{element_data.ELEMENT_DATA[this.data.id].automobile}}</li>
+    <li>{{element_data.ELEMENT_DATA[this.data.id].mileage}}</li>
   </ul>
   <ul class="send-form__list">
     <li>Услуга:</li>
-    <li>{{element_data[0].service}}</li>
+    <li>{{element_data.ELEMENT_DATA[this.data.id].service}}</li>
   </ul>
   <p style="padding-left: 20px;">Выбранное время:</p>
   <ul class="send-form__time">
-    <li>&#8212; {{element_data[0].visit_time1}}</li>
-    <li>&#8212; {{element_data[0].visit_time2}}</li>
+    <li>&#8212; {{element_data.ELEMENT_DATA[this.data.id].visit_time1}}</li>
+    <li>&#8212; {{element_data.ELEMENT_DATA[this.data.id].visit_time2}}</li>
   </ul>
   <p style="padding-left: 20px;">Денежные поступления:</p>
   <ul class="send-form__receipts">
@@ -25,10 +25,10 @@
       <li>
         <ul class="receipts__discount-list">
           <li style="border: 1px solid black;" #li1 class="receipts__discount-list_item" (click)="discount(li1)"><span>0%</span></li>
-          <li #li2 class="receipts__discount-list_item" (click)="discount(li2)"><span>5%</span></li>
-          <li #li3 class="receipts__discount-list_item" (click)="discount(li3)"><span>10%</span></li>
-          <li #li4 class="receipts__discount-list_item" (click)="discount(li4)"><span>15%</span></li>
-          <li #li5 class="receipts__discount-list_item" (click)="discount(li5)"><span>20%</span></li>
+          <li style="border: 1px solid black;" #li2 class="receipts__discount-list_item" (click)="discount(li2)"><span>5%</span></li>
+          <li style="border: 1px solid black;" #li3 class="receipts__discount-list_item" (click)="discount(li3)"><span>10%</span></li>
+          <li style="border: 1px solid black;" #li4 class="receipts__discount-list_item" (click)="discount(li4)"><span>15%</span></li>
+          <li style="border: 1px solid black;" #li5 class="receipts__discount-list_item" (click)="discount(li5)"><span>20%</span></li>
         </ul>
       </li>
     </div>

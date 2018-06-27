@@ -1,6 +1,6 @@
 import * as _ from 'underscore';
 
-export class ModalService {
+export class EditDialogService {
   animal: string;
   name: string;
 }

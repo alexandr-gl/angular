@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
-import {ModalComponent} from '../modal/modal.component';
 import {SendFormComponent} from '../send-form/send-form.component';
-import {ELEMENT_DATA} from '../app.component';
+// import {RequestService, HttpService} from '../request.service';
+// import { HttpClient} from '@angular/common/http';
+import {DATA} from '../element-data';
+
 
 @Component({
   selector: 'app-main-table',
@@ -10,32 +12,33 @@ import {ELEMENT_DATA} from '../app.component';
   styleUrls: ['./main-table.component.css']
 })
 export class MainTableComponent implements OnInit {
-  displayedColumns = ['position', 'name', 'weight', 'symbol', 'visit_time1', 'visit_time2', 'menu'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  @Input() tableData = [];
 
-  constructor( public func: ModalComponent, public sendForm: SendFormComponent) {}
+  @Output() openEditForm = new EventEmitter<number>();
+  @Output() openSendForm = new EventEmitter<number>();
+
+  displayedColumns = ['id', 'automobile', 'mileage', 'service', 'visit_time1', 'visit_time2', 'menu'];
+  dataSource = []; // = new MatTableDataSource(this.tableData);
+  // check_data;
+
+  constructor(
+    public sendForm: SendFormComponent,
+    // public elementData: RequestService,
+    // private httpService: HttpService
+  ) {}
 
   ngOnInit() {
+    // this.httpService.getData().subscribe(data => this.check_data = data)
+    console.log('OOOOO', this.tableData);
+    this.dataSource = this.tableData;
   }
 
   showModal(id: any): void {
     console.log('>>>>EVENT', id);
-    this.func.openDialog(id);
+    this.openEditForm.emit(id.id);
   }
 
-  showSendForm(): void {
-    this.sendForm.openDialog();
+  showSendForm(id: any): void {
+    this.openSendForm.emit(id);
   }
 }
-
-// @Component({
-//   selector: 'app-main-table-menu',
-//   template: `<mat-menu #menu="matMenu">
-//     <button mat-menu-item (click)='showModal()'>Edit</button>
-//     <button mat-menu-item (click)='showSendForm()'>Send</button>
-//   </mat-menu>`
-// })
-// export class MainTableMenuComponent implements OnInit {
-//   ngOnInit() {
-//   }
-// }

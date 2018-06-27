@@ -1,8 +1,3 @@
-// export class Request{
-//
-//   constructor(public name: string, public status: string) { }
-// }
-
 export interface Request {
   id: number;
   automobile: string;
